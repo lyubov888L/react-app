@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React {window.REACT_APP_AXCO_IQ_API_ENDPOINT}
         </a>
       </header>
     </div>
