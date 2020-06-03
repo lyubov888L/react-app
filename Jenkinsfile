@@ -26,9 +26,8 @@ pipeline {
            steps{
             echo "Deploy %{env.BUILD_ID}% now ${env.BUILD_ID}"
             script {
-                bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/config_%ENV_NAME%.yaml -n %ENV_NAME%' 
-                bat 'kubectl --kubeconfig ./config set image deployment/react-app-example react-app-example=bhavik0907/react-app:${env.BUILD_ID} -n %ENV_NAME%'       
-                bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/service_%ENV_NAME%.yaml -n %ENV_NAME%'    
+                bat 'echo %env.BUILD_ID% now ${env.BUILD_ID} again %{env.BUILD_ID}%'
+                  
             }
            }
        }
