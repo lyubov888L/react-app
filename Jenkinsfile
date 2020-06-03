@@ -24,10 +24,10 @@ pipeline {
        }
         stage('Kubernetes deployment') {
            steps{
-            echo "Deploy"
+            echo "Deploy %{env.BUILD_ID}% now ${env.BUILD_ID}"
             script {
-                bat 'kubectl --kubeconfig ./config set image deployment/react-app-example react-app-example=bhavik0907/react-app:27 -n %ENV_NAME%'    
-                bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/deployment.yaml -n %ENV_NAME%'    
+                bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/config_%ENV_NAME%.yaml -n %ENV_NAME%' 
+                bat 'kubectl --kubeconfig ./config set image deployment/react-app-example react-app-example=bhavik0907/react-app:${env.BUILD_ID} -n %ENV_NAME%'       
                 bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/service_%ENV_NAME%.yaml -n %ENV_NAME%'    
             }
            }
