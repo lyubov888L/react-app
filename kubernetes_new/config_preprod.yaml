@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: react-app-example-config
+data:
+  config.js: |
+    window.REACT_APP_AXCO_IQ_API_ENDPOINT='https://neha.preprod/api/public/bookmarks'
