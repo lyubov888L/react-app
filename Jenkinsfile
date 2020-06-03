@@ -3,6 +3,7 @@ pipeline {
    environment {
            ENV_NAME = getEnvName(env.BRANCH_NAME)
         }
+    stages {
        stage('Push Image') {
          steps {
              echo '$ENV_NAME'
@@ -29,7 +30,7 @@ pipeline {
             }
            }
        }
-
+    }
       }
 def getEnvName(branchName) {
     if("master".equals(branchName)) {
