@@ -27,6 +27,7 @@ pipeline {
             echo "Deploy %{env.BUILD_ID}% now ${env.BUILD_ID}"
             script {
                 bat 'echo %env.BUILD_ID% now ${env.BUILD_ID} again %{env.BUILD_ID}%'
+                bat 'echo %BUILD_NUMBER% or %BUILD_ID%'
                   
             }
            }
