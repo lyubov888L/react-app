@@ -3,12 +3,6 @@ pipeline {
    environment {
            ENV_NAME = getEnvName(env.BRANCH_NAME)
         }
-   stages {
-      stage('git checkout') {
-         steps {
-            git 'https://github.com/NehaOberoi92/react-app.git'
-         }
-      }
        stage('Push Image') {
          steps {
              echo '$ENV_NAME'
