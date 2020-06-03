@@ -31,7 +31,6 @@ pipeline {
        }
 
       }
-   }
 def getEnvName(branchName) {
     if("master".equals(branchName)) {
         return "preprod";
