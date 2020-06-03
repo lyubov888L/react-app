@@ -26,12 +26,9 @@ pipeline {
            steps{
             echo "Deploy"
             script {
-                echo 'Print env name $ENV_NAME'
-                bat 'echo %ENV_NAME%'
-                bat 'echo %BRANCH_NAME%'   
-                bat 'kubectl --kubeconfig ./config set image deployment/react-app-example react-app-example=bhavik0907/react-app:27 --n %ENV_NAME%'    
-                bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/deployment.yaml --n %ENV_NAME%'    
-                bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/service_%ENV_NAME%.yaml --n %ENV_NAME%'    
+                bat 'kubectl --kubeconfig ./config set image deployment/react-app-example react-app-example=bhavik0907/react-app:27 -n %ENV_NAME%'    
+                bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/deployment.yaml -n %ENV_NAME%'    
+                bat 'kubectl --kubeconfig ./config apply -f kubernetes_new/service_%ENV_NAME%.yaml -n %ENV_NAME%'    
             }
            }
        }
